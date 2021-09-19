@@ -16,13 +16,7 @@ import android.graphics.drawable.BitmapDrawable
 class MainActivity : AppCompatActivity() {
     var nbdice:Int=1
     var count = 1
-//    var emptydice =findViewById<ImageView>(R.id.emptydice)
-//    var emptydice2 =findViewById<ImageView>(R.id.emptydice2)
-//    var emptydice3 =findViewById<ImageView>(R.id.emptydice3)
-//    var emptydice4 =findViewById<ImageView>(R.id.emptydice4)
-
-    var imagesArray : MutableList<ImageView> = mutableListOf()
-
+    val imagesArray : MutableList<ImageView> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,78 +27,47 @@ class MainActivity : AppCompatActivity() {
         imagesArray.add(findViewById<ImageView>(R.id.emptydice4))
         nbdice=findViewById<TextView>(R.id.diceCounter).text.toString().toInt()
     }
-    fun randomnumber():String
+
+    fun randomimage():Int
     {
-        val numb=(1..6).random()
-        return numb.toString()
+        when((1..6).random()){
+            1-> return R.drawable.dice1
+            2-> return R.drawable.dice2
+            3-> return R.drawable.dice3
+            4-> return R.drawable.dice4
+            5-> return R.drawable.dice5
+            6-> return R.drawable.dice6
+        }
+        return 0
     }
 
-    fun rollnextimage(textarray: TextView, imagearray: ImageView)
-    {
-        val rollnext: ImageView =imagearray
-        val dices=if(textarray.text as String == "-" ){R.drawable.emptydice}
-        else{
-            when((textarray.text as String).toInt()){
-                1-> R.drawable.dice1
-                2-> R.drawable.dice2
-                3-> R.drawable.dice3
-                4-> R.drawable.dice4
-                5-> R.drawable.dice5
-                else-> R.drawable.dice6
-            }
+
+    fun btnSetClicked(sender: View) {
+        for(i in 0 until nbdice)
+        {
+            imagesArray[i].setImageResource(randomimage())
         }
-        rollnext.setImageResource((dices))
+        for (i in nbdice until 4)
+        {
+            imagesArray[i].setImageResource(R.drawable.emptydice)
+        }
     }
 
-        fun counter():String {
-        var counts = 0
-
-        when (count) {
-            1 -> {
-                counts = 1
-            }
-            2 -> {
-                counts = 2
-            }
-            3 -> {
-                counts = 3
-            }
-            4 -> {
-                counts = 4
-            }
-        }
-        return counts.toString()
-        }
+    fun btnAddDice(sender: View) {
+        val emptydice =findViewById<ImageView>(R.id.emptydice)
+        val emptydice2 =findViewById<ImageView>(R.id.emptydice2)
+        val emptydice3 =findViewById<ImageView>(R.id.emptydice3)
+        val emptydice4 =findViewById<ImageView>(R.id.emptydice4)
 
 
-        fun btnSetClicked(sender: View) {
-
-
-            for(i in 0 until nbdice)
-            {
-
-                    imagesArray[i].setImageResource(randomimage())
-            }
-            for (i in nbdice until 4)
-            {
-                imagesArray[i].setImageResource(R.drawable.emptydice)
-            }
-    }
-
-        fun btnAddDice(sender: View) {
-        var emptydice =findViewById<ImageView>(R.id.emptydice)
-        var emptydice2 =findViewById<ImageView>(R.id.emptydice2)
-        var emptydice3 =findViewById<ImageView>(R.id.emptydice3)
-        var emptydice4 =findViewById<ImageView>(R.id.emptydice4)
-
-
-        var mtv = findViewById<TextView>(R.id.diceCounter)
+        val mtv = findViewById<TextView>(R.id.diceCounter)
         count++
-        var counter = count.toString()
+        val counter = count.toString()
         mtv.text = counter
+        nbdice=findViewById<TextView>(R.id.diceCounter).text.toString().toInt()
 
-        var Addbtn = findViewById<Button>(R.id.addDice)
-        var Rembtn = findViewById<Button>(R.id.RemoveDice)
+        val Addbtn = findViewById<Button>(R.id.addDice)
+        val Rembtn = findViewById<Button>(R.id.RemoveDice)
 
         if(count==4)
         {
@@ -129,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                 emptydice4.setImageResource(R.drawable.emptydice)
             }
         }
-            nbdice=findViewById<TextView>(R.id.diceCounter).text.toString().toInt()
+
 
     }
 
@@ -137,12 +100,13 @@ class MainActivity : AppCompatActivity() {
         fun btnRemoveDice(sender: View) {
 
             var emptydice =findViewById<ImageView>(R.id.emptydice)
-            var emptydice2 =findViewById<ImageView>(R.id.emptydice2)
-            var emptydice3 =findViewById<ImageView>(R.id.emptydice3)
-            var emptydice4 =findViewById<ImageView>(R.id.emptydice4)
+            val emptydice2 =findViewById<ImageView>(R.id.emptydice2)
+            val emptydice3 =findViewById<ImageView>(R.id.emptydice3)
+            val emptydice4 =findViewById<ImageView>(R.id.emptydice4)
+
             nbdice=findViewById<TextView>(R.id.diceCounter).text.toString().toInt()
 
-            var mtv = findViewById<TextView>(R.id.diceCounter)
+            val mtv = findViewById<TextView>(R.id.diceCounter)
             count--
             var counter = count.toString()
             mtv.text = counter
@@ -173,18 +137,6 @@ class MainActivity : AppCompatActivity() {
             }
        }
 
-        fun randomimage():Int
-        {
-            when((1..6).random()){
-                1-> return R.drawable.dice1
-                2-> return R.drawable.dice2
-                3-> return R.drawable.dice3
-                4-> return R.drawable.dice4
-                5-> return R.drawable.dice5
-                6-> return R.drawable.dice6
-            }
-            return 0
-        }
 
         fun rollnextdice(Sender: View)
         {
