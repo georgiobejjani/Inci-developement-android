@@ -222,7 +222,7 @@ class MainActivity : AppCompatActivity() {
        }
 
 
-//test for update
+
         fun rollnextdice(Sender: View)
         {
             var nbdice=counter().toInt()
