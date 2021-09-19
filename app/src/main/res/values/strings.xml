@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">diceRoller</string>
+    <string name="text_view1">-</string>
+    <string name="btn_rolldice">Roll all dice</string>
+    <string name="btn_removeDice">-</string>
+    <string name="btn_addDice">+</string>
+    <string name="diceCounter">1</string>
+    <string name="Btnreset">Reset</string>
+    <string name="rollnextdice">Roll Next Dice</string>
+</resources>
