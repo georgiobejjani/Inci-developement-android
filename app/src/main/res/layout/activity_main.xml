@@ -104,4 +104,15 @@
         app:layout_constraintTop_toBottomOf="@+id/emptydice2"
         app:srcCompat="@drawable/emptydice" />
 
+    <Button
+        android:id="@+id/Resultbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:onClick="ResultNumberBtn"
+        android:text="@string/nextActivitybtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emptydice3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

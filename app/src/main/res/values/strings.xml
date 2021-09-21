@@ -7,4 +7,6 @@
     <string name="diceCounter">1</string>
     <string name="Btnreset">Reset</string>
     <string name="rollnextdice">Roll Next Dice</string>
+    <string name="nextActivitybtn">Results</string>
+    <string name="test">Resuts</string>
 </resources>

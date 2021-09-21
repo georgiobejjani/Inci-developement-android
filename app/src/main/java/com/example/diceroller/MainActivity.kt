@@ -1,5 +1,7 @@
 package com.example.diceroller
 
+import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.graphics.drawable.BitmapDrawable
+
 
 
 
@@ -158,4 +161,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    fun ResultNumberBtn(Sender: View) {
+        val intent = Intent(this, StoredNumber::class.java)
+        startActivity(intent)
+    }
+
 }
