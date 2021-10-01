@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     var nbdice:Int=1
     var count = 1
     val imagesArray : MutableList<ImageView> = mutableListOf()
+    val temparray : MutableList<Int> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         nbdice=findViewById<TextView>(R.id.diceCounter).text.toString().toInt()
     }
 
-    fun randomimage():Int
+    fun randomimage(nbm:Int):Int
     {
-        when((1..6).random()){
+        when(nbm){
             1-> return R.drawable.dice1
             2-> return R.drawable.dice2
             3-> return R.drawable.dice3
@@ -46,14 +47,18 @@ class MainActivity : AppCompatActivity() {
 
 
     fun btnSetClicked(sender: View) {
+        val storeNumbers:MutableList<Int> = mutableListOf()
         for(i in 0 until nbdice)
         {
-            imagesArray[i].setImageResource(randomimage())
+            val numbers=(1..6).random()
+            storeNumbers.add(numbers)
+            imagesArray[i].setImageResource(randomimage(numbers))
         }
         for (i in nbdice until 4)
         {
             imagesArray[i].setImageResource(R.drawable.emptydice)
         }
+        ResultStored.storedNumber.add(dataResult(storeNumbers,nbdice))
     }
 
     fun btnAddDice(sender: View) {
@@ -156,7 +161,13 @@ class MainActivity : AppCompatActivity() {
                 var gh= (imagesArray[i].getDrawable() as BitmapDrawable).bitmap
                 if(gh.sameAs((getDrawable(R.drawable.emptydice) as BitmapDrawable).bitmap))
                 {
-                    imagesArray[i].setImageResource(randomimage())
+                    val btnrandom=(1..6).random()
+                    temparray.add(btnrandom)
+                    if(temparray.size==nbdice){
+                        ResultStored.storedNumber.add(dataResult(temparray.toList(),nbdice))
+                        temparray.clear()
+                    }
+                    imagesArray[i].setImageResource(randomimage(btnrandom))
                     return
                 }
             }
