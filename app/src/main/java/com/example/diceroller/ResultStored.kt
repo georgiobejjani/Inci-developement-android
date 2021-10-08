@@ -9,43 +9,12 @@ import org.json.JSONObject
 
 object ResultStored {
      val storedNumber: MutableList<dataResult> = mutableListOf()
-    fun add_collection(x: dataResult)
+    fun addAll(x: dataResult)
     {
         storedNumber.add(x)
         post(x.Numberstored.toString())
     }
 
-    fun add_partial(dice: Int, nbDice: Int)
-    {
-        if (storedNumber.size == 0)
-        {
-            val tmp_list : MutableList<Int> = mutableListOf(dice)
-            storedNumber.add(dataResult(tmp_list, nbDice))
-            return
-        }
-
-        val last_element = storedNumber.removeLast()
-
-        if (last_element.Numberstored.size == last_element.Numbers)
-        {
-            storedNumber.add(last_element)
-
-            val tmp_list : MutableList<Int> = mutableListOf(dice)
-            storedNumber.add(dataResult(tmp_list, nbDice))
-        }
-        else
-        {
-            last_element.Numberstored.add(dice)
-            last_element.Numbers = nbDice
-            storedNumber.add(last_element)
-
-            if (last_element.Numberstored.size == last_element.Numbers)
-            {
-                post(last_element.Numbers.toString())
-            }
-
-        }
-    }
 
     fun get_all() : MutableList<dataResult>
     {

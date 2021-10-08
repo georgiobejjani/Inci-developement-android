@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         {
             imagesArray[i].setImageResource(R.drawable.emptydice)
         }
-        ResultStored.add_collection(dataResult(storeNumbers,nbdice))
+        ResultStored.addAll(dataResult(storeNumbers,nbdice))
     }
 
     fun btnAddDice(sender: View) {
