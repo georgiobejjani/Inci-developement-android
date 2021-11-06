@@ -207,6 +207,14 @@ class MainActivity : AppCompatActivity() {
 
         queue.add(postRequest)
     }
+    fun camera(Sender: View) {
+        val intent = Intent(this, camera::class.java)
+        startActivity(intent)
+    }
+    fun maps(Sender: View) {
+        val intent = Intent(this, maps::class.java)
+        startActivity(intent)
+    }
 
 
 }

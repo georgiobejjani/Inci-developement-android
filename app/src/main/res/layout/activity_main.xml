@@ -108,11 +108,37 @@
         android:id="@+id/Resultbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
         android:onClick="ResultNumberBtn"
         android:text="@string/nextActivitybtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/camera_btn"
+        app:layout_constraintTop_toBottomOf="@+id/emptydice4" />
+
+    <Button
+        android:id="@+id/camera_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="81dp"
+        android:onClick="camera"
+        android:text="@string/camera"
+        app:layout_constraintEnd_toStartOf="@+id/Resultbtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emptydice3" />
+        app:layout_constraintTop_toBottomOf="@+id/emptydice3"
+        tools:text="@string/camera" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:onClick="maps"
+        android:text="@string/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

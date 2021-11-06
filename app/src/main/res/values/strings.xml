@@ -10,4 +10,10 @@
     <string name="nextActivitybtn">Results</string>
     <string name="test">Resuts</string>
     <string name="delete">Delete</string>
+    <string name="camera">camera</string>
+    <string name="pic">picture</string>
+    <string name="gal">galery</string>
+    <string name="map">Maps</string>
+    <string name="title_activity_maps">maps</string>
+
 </resources>
