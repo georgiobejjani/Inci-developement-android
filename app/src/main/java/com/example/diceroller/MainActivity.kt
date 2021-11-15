@@ -1,9 +1,12 @@
 package com.example.diceroller
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         imagesArray.add(findViewById<ImageView>(R.id.emptydice3))
         imagesArray.add(findViewById<ImageView>(R.id.emptydice4))
         nbdice=findViewById<TextView>(R.id.diceCounter).text.toString().toInt()
+        createChannel()
     }
 
     fun randomimage(nbm:Int):Int
@@ -214,6 +218,20 @@ class MainActivity : AppCompatActivity() {
     fun maps(Sender: View) {
         val intent = Intent(this, maps::class.java)
         startActivity(intent)
+    }
+
+    private fun createChannel(){
+        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+            val name = "georgio"
+            val descriptionText = "informative channel description"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(Notifpage.CHANNEL_ID,name,importance).apply{
+                description = descriptionText
+            }
+
+            val notificaionManager:NotificationManager= getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            notificaionManager.createNotificationChannel(channel)
+        }
     }
 
 

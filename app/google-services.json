@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "703303013426",
+    "project_id": "notifpage",
+    "storage_bucket": "notifpage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703303013426:android:90cfb88d1bdc5c18f0d82b",
+        "android_client_info": {
+          "package_name": "com.example.diceroller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "703303013426-587idquitrs3atl5l1kl0qmbhb6j51dc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq8CH48hAm_qE5Hp2d_GSSWQrKeOFUodw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "703303013426-587idquitrs3atl5l1kl0qmbhb6j51dc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
